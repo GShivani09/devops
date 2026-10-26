@@ -1,0 +1,22 @@
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the application...'
+                bat 'dir'
+                echo 'Build Successful'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing the application...'
+                bat 'if not exist index.html exit /b 1'
+                echo 'Test Successful'
+            }
+        }
+    }
+}
